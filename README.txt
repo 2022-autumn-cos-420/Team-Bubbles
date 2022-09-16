@@ -5,4 +5,9 @@ Developer: Jackson Cyr
 
 Mission: To make sure no student falls behind.
 
-Here at Team Bubbles we are dedicated to helping students stay on task by providing tools that will help aid students with inattentive disorders in managing their time and assignments. With the explosion of technology and social media in the modern world, there are more ways than ever for students with inattentive disorders to become distracted and fall behind in their classes. Our goal is to fill the gap in inattentive tailored task management so no student goes chasing bubbles again.
+Here at Team Bubbles we are dedicated to helping students stay on task by providing tools
+that will help aid students with inattentive disordersin managing their time and assignments.
+With the explosion of technology and social media in the modern world, there are more ways
+than ever for students with inattentive disorders to become distracted and fall behind in
+their classes. Our goal is to fill the gap in inattentive tailored task management so no
+student goes chasing bubbles again.
