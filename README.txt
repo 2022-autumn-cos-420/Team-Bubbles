@@ -1,4 +1,4 @@
-PM: Nate Roberts
+Project Manager: Nate Roberts
 Designer: Aspyn Call
 Developer: Danny McA'Nulty
 Developer: Jackson Cyr
