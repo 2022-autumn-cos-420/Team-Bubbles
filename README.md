@@ -1,4 +1,4 @@
-# H1 Team Bubbles
+# Team Bubbles
 
 Project Manager: Nate Roberts
 Designer: Aspyn Call
