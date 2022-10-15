@@ -13,4 +13,6 @@ Installation process:
 1) Create directory on your machine
 2) Clone repository to that directory
 3) Open directory in vs code
-4) Run npm start in vs code terminal
+4) cd into Team-Bubbles then cd into timewielder
+5) Run npm install node in terminal
+6) Run npm start
