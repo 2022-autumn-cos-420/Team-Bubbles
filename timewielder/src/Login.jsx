@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 import "./App.css";
+import CalendarPage from "./Calendar";
 import database from './store.js';
 
 function LoginForm() {
@@ -66,8 +67,8 @@ function LoginForm() {
 
     return (
         <div className="login-form">
-            <div className="title">Sign In</div>
-            {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+            {!isSubmitted && <div className="title">Sign In (right now can only log in with "user1 and pass1")</div>}
+            {isSubmitted ? <CalendarPage /> : renderForm}
       </div>
     )
 }
