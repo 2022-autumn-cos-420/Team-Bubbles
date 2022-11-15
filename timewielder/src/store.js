@@ -1,5 +1,5 @@
   // User Login info
-  const database = [
+  let database = [
     {
       username: "user1",
       password: "pass1"
