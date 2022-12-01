@@ -25,7 +25,8 @@ function App() {
         {user ? (
           <div>
             {user.user.displayName}
-            <CalendarPage></CalendarPage>
+            <CalendarPage user={user}></CalendarPage>
+
           </div>
         ) : (
           <div>
