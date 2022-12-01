@@ -26,6 +26,7 @@ function App() {
           <div>
             {user.user.displayName}
             <CalendarPage user={user}></CalendarPage>
+
           </div>
         ) : (
           <div>
