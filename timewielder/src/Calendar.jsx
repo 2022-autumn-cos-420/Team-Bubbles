@@ -8,7 +8,7 @@ import {auth, db} from "./firebase-config.tsx";
 import {addDoc, collection} from "firebase/firestore";
 import {useCollection} from 'react-firebase-hooks/firestore';
 
-function AddToDatabase() {
+function AddToDatabase({user}) {
   const [textData, setTextData] = useState(String(""));
 
   return (
@@ -16,7 +16,7 @@ function AddToDatabase() {
       <textarea value = {textData} onChange={e=>setTextData(e.target.value)}></textarea>
       <button onClick={()=>{
         addDoc(collection(db, 'test_collection'), {
-          userId: "User1",
+          userId: user.user.displayName,
           information: textData
         })
       }}>Send to Database</button>
@@ -45,7 +45,7 @@ function DatabaseContainer() {
   );
 }
 
-function CalendarPage() {
+function CalendarPage({user}) {
   const [date, setDate] = useState(new Date());
 
   const renderForm = (
@@ -70,7 +70,7 @@ function CalendarPage() {
   );
 
   return <div className="calendar-form">{renderForm}
-  <AddToDatabase></AddToDatabase>
+  <AddToDatabase user={user}></AddToDatabase>
   <DatabaseContainer></DatabaseContainer>
   </div>;
 }
