@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Calendar from "react-calendar";
+import TaskForm from "./TaskForm.jsx"
 import "react-calendar/dist/Calendar.css";
 
 import "./App.css";
@@ -71,6 +72,7 @@ function CalendarPage({user}) {
   );
 
   return <div className="calendar-form">{renderForm}
+  <TaskForm/>
   <AddToDatabase user={user}></AddToDatabase>
   <DatabaseContainer></DatabaseContainer>
   </div>;
