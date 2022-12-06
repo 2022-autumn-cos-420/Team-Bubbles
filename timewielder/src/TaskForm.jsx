@@ -1,8 +1,16 @@
+import React, { useState } from "react";
 import {auth, db} from "./firebase-config.tsx";
 import { addDoc, collection } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { Button } from "react-bootstrap";
 
 function TaskForm(user) {
+    let IsCreatingTasks = false;
+    const [ isCreatingTask, setIsCreatingTask ] = useState(IsCreatingTasks);
+    
+    function flipIsCreatingTasks() {
+        setIsCreatingTask(!isCreatingTask);
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -15,7 +23,7 @@ function TaskForm(user) {
         })
     };
 
-    const renderForm = (
+    const renderTaskForm = (
         <><h2>Task Information Form</h2><div className="form">
             <form onSubmit={handleSubmit}>
                 <div className="input-container">
@@ -31,7 +39,7 @@ function TaskForm(user) {
                     <input type="text" name="taskDescription" required />
                 </div>
                 <div className="button-container">
-                    <input type="submit" />
+                    <input type="submit" onClick={flipIsCreatingTasks} />
                 </div>
             </form>
         </div></>
@@ -40,7 +48,8 @@ function TaskForm(user) {
     return (
         <div className="register-form">
             <div className="title">
-                {renderForm}
+                <Button onClick={flipIsCreatingTasks}>Create Task</Button>
+                {isCreatingTask ? renderTaskForm : null}
             </div>
         </div>
     );

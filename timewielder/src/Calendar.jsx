@@ -68,13 +68,12 @@ function CalendarPage({user}) {
           {date.toDateString()}
         </p>
       )}
+      <TaskForm/>
     </div>
   );
 
   return <div className="calendar-form">{renderForm}
-  <TaskForm/>
   <AddToDatabase user={user}></AddToDatabase>
-  <DatabaseContainer></DatabaseContainer>
   </div>;
 }
 
