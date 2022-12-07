@@ -14,8 +14,8 @@ function TaskForm({user, date}) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        var { taskName, dueDate, taskDescription } = document.forms[0];
-        console.log(taskName.value, taskDescription.value, dueDate.value);
+        var { taskName, taskDescription } = document.forms[0];
+        console.log(taskName.value, taskDescription.value);
         addDoc(collection(db, "tasks"), {
             user: user.user.displayName,
             body: taskDescription.value,
