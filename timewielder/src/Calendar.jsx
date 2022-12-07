@@ -63,7 +63,7 @@ function CalendarPage({user}) {
       )}
     </div>
   </div>
-  <TaskForm user={user}/>
+  <TaskForm user={user} date={date}/>
   </div>;
 }
 

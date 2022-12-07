@@ -4,7 +4,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { Button } from "react-bootstrap";
 
-function TaskForm({user}) {
+function TaskForm({user, date}) {
     let IsCreatingTasks = false;
     const [ isCreatingTask, setIsCreatingTask ] = useState(IsCreatingTasks);
     
@@ -19,7 +19,7 @@ function TaskForm({user}) {
         addDoc(collection(db, "tasks"), {
             user: user.user.displayName,
             body: taskDescription.value,
-            date: dueDate.value,
+            date: date.toDateString(),
             title: taskName.value
         })
     };
@@ -30,10 +30,6 @@ function TaskForm({user}) {
                 <div className="input-container">
                     <label>Task Name</label>
                     <input type="text" name="taskName" required />
-                </div>
-                <div className="input-container">
-                    <label>Due Date</label>
-                    <input type="text" name="dueDate" required />
                 </div>
                 <div className="input-container">
                     <label>Task Description</label>
