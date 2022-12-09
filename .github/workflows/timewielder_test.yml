@@ -17,4 +17,4 @@ jobs:
         working-directory: ./timewielder
         run: |
           npm ci
-          npm run test:nowatch
+          npm run test:cov
