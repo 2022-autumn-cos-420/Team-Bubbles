@@ -61,3 +61,27 @@ input[type="submit"]:hover {
   gap: 8px;
   margin: 10px;
 }
+
+.tasklist {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+  margin: 10px;
+  height: 400px;
+  width: 300px;
+  background-color: white;
+}
+
+.calendar-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.task-list-header {
+  color: red;
+}
+
+.calendar-container {
+  height: 500px;
+}
