@@ -20,12 +20,6 @@ test('not logged in text is rendered', () => {
   expect(notLoggedIn).toBeInTheDocument();
 });
 
-test('create task button appears', () => {
-  render(<CalendarPage user="test"/>);
-  const createTaskButton = screen.getByText(/Create Task/);
-  expect(createTaskButton).toBeInTheDocument();
-});
-
 test('calendar text appears', () => {
   render(<CalendarPage user="test"/>);
   const calendarText = screen.getByText(/Calendar/);
@@ -36,4 +30,28 @@ test('task list appears', () => {
   render(<CalendarPage user="test"/>);
   const tasksForText = screen.getByText(/Tasks for/);
   expect(tasksForText).toBeInTheDocument();
+});
+
+test('tests for logo', () => {
+  render(<App user="test"/>);
+  const logoExists = screen.getByAltText(/TimeWielder Logo/);
+  expect(logoExists).toBeInTheDocument();
+});
+
+test('task form information appears', () => {
+  render(<CalendarPage user="test"/>);
+  const taskFormInformation = screen.getByText(/Task Information Form/);
+  expect(taskFormInformation).toBeInTheDocument();
+});
+
+test('task name appears', () => {
+  render(<CalendarPage user="test"/>);
+  const taskName = screen.getByText(/Task Name/);
+  expect(taskName).toBeInTheDocument();
+});
+
+test('task description appears', () => {
+  render(<CalendarPage user="test"/>);
+  const taskDescription = screen.getByText(/Task Description/);
+  expect(taskDescription).toBeInTheDocument();
 });
