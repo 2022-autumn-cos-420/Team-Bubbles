@@ -20,7 +20,8 @@ function TaskForm({user, date}) {
             user: user.user.displayName,
             body: taskDescription.value,
             date: date.toDateString(),
-            title: taskName.value
+            title: taskName.value,
+            done: "not done"
         })
     };
 

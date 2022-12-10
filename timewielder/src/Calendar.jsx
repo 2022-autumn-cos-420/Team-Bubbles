@@ -53,7 +53,7 @@ function CalendarPage({user}) {
             <div>
               <div>{obj.data().title}</div>
               <div>{obj.data().body}</div>
-              <div>{obj.data().duedate}</div>
+              <button>{obj.data().done}</button>
             </div>
           ))}
         </div>
