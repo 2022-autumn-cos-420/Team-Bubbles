@@ -6,6 +6,7 @@ import "./App.css";
 import LoginForm from  "./LoginForm.jsx";
 import RegisterForm from "./RegisterForm.jsx";
 import CalendarPage from "./Calendar.jsx";
+import logo from './logo.jpg';
 
 import {auth, db} from "./firebase-config.tsx";
 import {addDoc, collection} from "firebase/firestore";
@@ -30,6 +31,7 @@ function App() {
   return (
     <div className="app">
       <div className="LoginArea">
+        <img src={logo} style={{width: 100, height: 100, position: 'absolute', top: 0, left: 0}} alt="TimeWielder Logo" />
         {user ? (
           <div>
             <CalendarPage user={user}></CalendarPage>

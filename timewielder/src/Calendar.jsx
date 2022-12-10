@@ -10,24 +10,6 @@ import {addDoc, collection} from "firebase/firestore";
 import {useCollection} from 'react-firebase-hooks/firestore';
 import TaskForm from "./TaskForm";
 
-function AddToDatabase({user}) {
-  const [textData, setTextData] = useState(String(""));
-
-  return (
-    <div>
-      <textarea value = {textData} onChange={e=>setTextData(e.target.value)}></textarea>
-      <button onClick={()=>{
-        addDoc(collection(db, 'tasks'), {
-          userId: user.user.displayName,
-          information: textData
-        })
-      }}>Send to Database</button>
-    </div>
-  )
-}
-
-
-
 function CalendarPage({user}) {
   const [value, loading, error] = useCollection(collection(db, 'tasks'));
   const [date, setDate] = useState(new Date());

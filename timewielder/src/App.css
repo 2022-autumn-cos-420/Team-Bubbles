@@ -1,13 +1,18 @@
 .app {
   font-family: sans-serif;
+  color: white;
   display: flex;
+  padding: 40px;
+  padding-top: 60px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  height: 100vh;
+  height: 100%;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-color: #434343;
+
+  
 }
 
 input[type="text"],
@@ -70,7 +75,9 @@ input[type="submit"]:hover {
   margin: 10px;
   height: 400px;
   width: 300px;
+  padding-bottom: 30px;
   background-color: white;
+  color: black;
 }
 
 .calendar-form {
