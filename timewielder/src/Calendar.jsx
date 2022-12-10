@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+
 import "./App.css";
 
 import {auth, db} from "./firebase-config.tsx";
 import {addDoc, collection} from "firebase/firestore";
 import {useCollection} from 'react-firebase-hooks/firestore';
+import TaskForm from "./TaskForm";
 
 function AddToDatabase({user}) {
   const [textData, setTextData] = useState(String(""));
@@ -15,7 +17,7 @@ function AddToDatabase({user}) {
     <div>
       <textarea value = {textData} onChange={e=>setTextData(e.target.value)}></textarea>
       <button onClick={()=>{
-        addDoc(collection(db, 'test_collection'), {
+        addDoc(collection(db, 'tasks'), {
           userId: user.user.displayName,
           information: textData
         })
@@ -24,17 +26,34 @@ function AddToDatabase({user}) {
   )
 }
 
-function DatabaseContainer() {
-  const [value, loading, error] = useCollection(collection(db, 'test_collection'));
 
-  return (
+
+function CalendarPage({user}) {
+  const [value, loading, error] = useCollection(collection(db, 'tasks'));
+  const [date, setDate] = useState(new Date());
+
+  const renderForm = (
+    <div className="app">
+      <h1 className="text-center">{user.user.displayName}'s Calendar</h1>
+      <div className="calendar-container">
+        <Calendar onChange={setDate} value={date} />
+      </div>
+    </div>
+  );
+
+  return <div className="calendar-form">{renderForm}
+  <div className="tasklist">
+    <div className="taskListHeader">Tasks for {date.toDateString().substring(4)}</div>
+
     <div className="DatabaseInfo">
       {value ? (
         <div>
-          {value.docs.map((obj) => (
+          {}
+          {value.docs.filter((obj) => obj.data().user === user.user.displayName && date.toDateString() == obj.data().date).map((obj) => (
             <div>
-              <div>User: {obj.data().userId}</div>
-              <div>Data: {obj.data().information}</div>
+              <div>{obj.data().title}</div>
+              <div>{obj.data().body}</div>
+              <div>{obj.data().duedate}</div>
             </div>
           ))}
         </div>
@@ -42,36 +61,8 @@ function DatabaseContainer() {
         <div>Loading Data...</div>
       )}
     </div>
-  );
-}
-
-function CalendarPage({user}) {
-  const [date, setDate] = useState(new Date());
-
-  const renderForm = (
-    <div className="app">
-      <h1 className="text-center">Calendar</h1>
-      <div className="calendar-container">
-        <Calendar onChange={setDate} value={date} selectRange={true} />
-      </div>
-      {date.length > 0 ? (
-        <p className="text-center">
-          <span className="bold">Start:</span> {date[0].toDateString()}
-          &nbsp;|&nbsp;
-          <span className="bold">End:</span> {date[1].toDateString()}
-        </p>
-      ) : (
-        <p className="text-center">
-          <span className="bold">Default selected date:</span>{" "}
-          {date.toDateString()}
-        </p>
-      )}
-    </div>
-  );
-
-  return <div className="calendar-form">{renderForm}
-  <AddToDatabase user={user}></AddToDatabase>
-  <DatabaseContainer></DatabaseContainer>
+  </div>
+  <TaskForm user={user} date={date}/>
   </div>;
 }
 
