@@ -34,7 +34,7 @@ function CalendarPage({user}) {
 
   const renderForm = (
     <div className="app">
-      <h1 className="text-center">{user.user.displayName}'s Calendar</h1>
+      <h1 className="text-center">Your Calendar</h1>
       <div className="calendar-container">
         <Calendar onChange={setDate} value={date} />
       </div>
