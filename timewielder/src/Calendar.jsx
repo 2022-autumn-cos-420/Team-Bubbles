@@ -30,7 +30,6 @@ function AddToDatabase({user}) {
 
 function CalendarPage({user}) {
   const [value, loading, error] = useCollection(collection(db, 'tasks'));
-
   const [date, setDate] = useState(new Date());
 
   const renderForm = (

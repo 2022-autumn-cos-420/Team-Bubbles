@@ -32,6 +32,7 @@ function App() {
       <div className="LoginArea">
         {user ? (
           <div>
+            {user.user.displayName}
             <CalendarPage user={user}></CalendarPage>
           </div>
         ) : (
