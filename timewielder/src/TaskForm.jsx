@@ -5,12 +5,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { Button } from "react-bootstrap";
 
 function TaskForm({user, date}) {
-    let IsCreatingTasks = false;
-    const [ isCreatingTask, setIsCreatingTask ] = useState(IsCreatingTasks);
-    
-    function flipIsCreatingTasks() {
-        setIsCreatingTask(!isCreatingTask);
-    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -46,8 +41,7 @@ function TaskForm({user, date}) {
     return (
         <div className="register-form">
             <div className="title">
-                <Button onClick={flipIsCreatingTasks}>Create Task</Button>
-                {isCreatingTask ? renderTaskForm : null}
+                {renderTaskForm}
             </div>
         </div>
     );
