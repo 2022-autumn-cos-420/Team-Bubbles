@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -12,12 +12,20 @@ import {addDoc, collection} from "firebase/firestore";
 import {useCollection} from 'react-firebase-hooks/firestore';
 import {useSignInWithGoogle} from "react-firebase-hooks/auth";
 
+import OneSignal from 'react-onesignal';
+
 function App() {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [registered, setRegister] = useState(false);
+
+  useEffect(() => {
+    OneSignal.init({
+      appId: "a60612d2-2201-40f1-af6b-fe84f1e18a62"
+    });
+  }, []);
 
   return (
     <div className="app">
