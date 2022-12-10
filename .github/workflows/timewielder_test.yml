@@ -17,4 +17,4 @@ jobs:
         working-directory: ./timewielder/src
         run: |
           npm ci
-          npm run test:cov
+          npm run test
